@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'foods/css/addFoods.css' %}" />
+    <title>Add food</title>
+  </head>
+
+  <body>
+    <!-- Barra lateral -->
+
+    <aside class="col-sm-2 sidebar">
+      <aside class="col-sm-2 sidebar">{% include 'sidebar.html' %}</aside>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div id="div-card" class="col-md-6">
+            <!-- Card -->
+            <div class="card">
+              <h3 class="text-center">Cadastro de Alimentos</h3>
+
+              <!-- form -->
+              <form
+                action="{% url 'add_food' %}"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                {%csrf_token%}
+                <!-- Nome do Alimento -->
+                <div class="mb-4">
+                  <label for="name" class="form-label">Nome do Alimento </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Digite o nome do alimento"
+                    required
+                  />
+                </div>
+
+                <!-- Preço do Alimento -->
+                <div class="mb-4">
+                  <label for="price" class="form-label">
+                    Preço do alimento
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="price"
+                    name="price"
+                    placeholder="Digite o preço do alimento"
+                    required
+                  />
+                </div>
+
+                <!-- Categoria -->
+                <div class="mb-4">
+                  <label for="category_id" class="form-label">Categoria</label>
+                  <select
+                    class="form-select"
+                    name="category_id"
+                    id="category_id"
+                    required
+                  >
+                    <option selected>Escolha uma categoria</option>
+                    {% for category in categories%}
+                    <option value={{category.id}}> {{category.category_type}}</option>
+                    {%endfor%}
+                  </select>
+                </div>
+
+                <!-- Imagem -->
+                <div class="mb-4">
+                  <label for="image" class="form-label"
+                    >Imagem do alimento</label
+                  >
+                  <input
+                    type="file"
+                    id="food_image"
+                    placeholder="Envie a imagem"
+                    name="food_image"
+                  />
+                </div>
+
+                <!-- Botão para enviar -->
+                <button
+                  id="btn-form"
+                  type="submit"
+                  class="btn btn-primary w-100"
+                >
+                  Cadastrar
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

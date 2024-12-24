@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'users/css/register.css' %}" />
+    <title>User register</title>
+  </head>
+
+  <body>
+    <!-- Conteúdo principal -->
+    <main class="main-content">
+      <div class="container">
+        <div class="row justify-content-center">
+          <h1 class="mt-5">Tenha acesso ao melhor restaurante da sua região</h1>
+
+          <div class="card" id="div-register" class="col-md-6">
+            <h3 class="text-center">Registre-se</h3>
+
+            <!-- form -->
+            <form
+              action="{% url 'register' %}"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              {%csrf_token%}
+
+              <!-- First name -->
+              <div class="mb-4">
+                <label for="firstname" class="form-label">Nome:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstname"
+                  name="firstname"
+                  placeholder="Digite seu nome:"
+                  required
+                />
+              </div>
+
+              <!-- Last name -->
+              <div class="mb-4">
+                <label for="lastname" class="form-label">Sobrenome:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastname"
+                  name="lastname"
+                  placeholder="Digite seu sobrenome:"
+                  required
+                />
+              </div>
+
+              <!-- Username -->
+              <div class="mb-4">
+                <label for="username" class="form-label"
+                  >Nome de usuário:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  name="username"
+                  placeholder="Digite seu nome de usuário:"
+                  required
+                />
+              </div>
+
+              <!-- E-mail -->
+              <div class="mb-4">
+                <label for="email" class="form-label"> E-mail: </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Digite seu e-mail"
+                  required
+                />
+              </div>
+              <!-- E-mail -->
+              <div class="mb-4">
+                <label for="password" class="form-label"> Senha: </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Digite sua senha"
+                  required
+                />
+              </div>
+
+              <!-- Botão para enviar -->
+              <button id="btn-form" type="submit" class="btn btn-primary w-100">
+                Cadastrar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

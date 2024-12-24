@@ -1,0 +1,130 @@
+body {
+  background-color: #ffffff;
+}
+
+#modalExclusao {
+  display: none;
+}
+
+/* Sidebar */
+.sidebar {
+  height: 100vh;
+  width: 12vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #202020;
+  padding-top: 20px;
+  box-shadow: 1px 1px 8px rgb(39, 39, 39);
+}
+
+.sidebar a {
+  padding: 1vh 0.5vw;
+  text-decoration: none;
+  font-size: 110%;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar h4 {
+  color: #06b699;
+  margin-bottom: 3vh;
+}
+
+.sidebar a:hover {
+  background-color: #06b699;
+  color: white;
+}
+
+/* Card */
+#txt-name {
+  font-weight: bold;
+}
+
+#div-card {
+  top: 10vh;
+}
+
+#div-card h3 {
+  margin-bottom: 4vh;
+}
+
+#div-card label {
+  font-weight: 450;
+}
+
+.card {
+  height: 25vh;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 1rem;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-txt {
+  font-family: sans-serif;
+}
+
+.card-footer-txt {
+  font-size: 90%;
+  text-align: right;
+  font-style: italic;
+}
+
+/* Botão */
+#btn-form {
+  background-color: #06b699;
+  border-color: #06b699;
+}
+
+#btn-form:hover {
+  background-color: #fcfcfc;
+  color: #06b699;
+}
+
+.delete-btn {
+  color: red;
+  text-decoration: none;
+}
+
+.delete-btn:hover {
+  color: darkred;
+  cursor: pointer;
+}
+
+.delete-btn i {
+  font-size: 20px; /* Ajusta o tamanho do ícone */
+  margin-right: 5px; /* Ajusta o espaço ao redor */
+}
+
+/* Imagem */
+.image-size {
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border: 1px solid rgb(136, 136, 136);
+  border-radius: 5%;
+}
+
+/* Menu superior para telas pequenas */
+@media (max-width: 768px) {
+  .sidebar {
+    height: 20vh;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    z-index: 1000;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding-top: 60px;
+  }
+
+  .sidebar a {
+    font-size: 16px;
+
+    text-align: center;
+  }
+}
