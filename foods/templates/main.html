@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'foods/css/main.css' %}" />
+    <title>Início</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <aside class="col-sm-2 sidebar">{% include 'sidebar.html' %}</aside>
+
+        <main class="main-content col-sm-12">
+          <article>
+            <section id="main-section">
+              <h1 class="display-4">Seja bem-vindo ao nosso Restaurante</h1>
+              <p class="pt-2 pt-1 lead">Experimente os melhores pratos!</p>
+              <a class="button" href="{% url 'show_food' %}">Veja nosso menu</a>
+            </section>
+
+            <!-- Sobre nós -->
+            <section id="about" class="bg-light py-5">
+              <div class="container text-center">
+                <h2 class="mb-5">Sobre Nós</h2>
+                <p class="lead">
+                  Somos movidos pela nossa paixão por comer bem!
+                </p>
+              </div>
+            </section>
+
+            <!-- Contatos -->
+            <section id="contact" class="py-5">
+              <div class="container text-center">
+                <h2 class="mb-5">Contato</h2>
+                <p class="lead">
+                  Entre em contato conosco para reservas e mais informações.
+                </p>
+                <p><strong>Email:</strong> contato@restaurantegourmet.com</p>
+                <p><strong>Telefone:</strong> (99) 99999-9999</p>
+              </div>
+            </section>
+          </article>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

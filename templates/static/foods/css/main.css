@@ -1,0 +1,102 @@
+body {
+  background-color: #ffffff;
+}
+
+/* Main content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  top: 30vh;
+}
+
+/* Sobre nós */
+#about {
+  margin-top: 20vh;
+}
+
+.button {
+  padding: 1vh 0.5vw;
+  text-decoration: none;
+  font-size: 110%;
+  color: #06b699;
+  display: block;
+  transition: 0.3s;
+  border: 2px solid #06b699; /* Adicionando borda */
+  border-radius: 5px; /* Arredondando os cantos */
+  text-align: center; /* Centralizando o texto */
+}
+
+.button:hover {
+  background-color: #06b699;
+  color: white;
+}
+
+/* Sidebar */
+.sidebar {
+  height: 100vh;
+  width: 12vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #202020;
+  padding-top: 20px;
+  box-shadow: 1px 1px 8px rgb(39, 39, 39);
+}
+
+.sidebar a {
+  padding: 1vh 0.5vw;
+  text-decoration: none;
+  font-size: 110%;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar h4 {
+  color: #06b699;
+  margin-bottom: 3vh;
+}
+
+.sidebar a:hover {
+  background-color: #06b699;
+  color: white;
+}
+
+/* Estilos adicionais */
+.header-content h1 {
+  font-size: 4rem;
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Estilização para telas pequenas */
+@media (max-width: 768px) {
+  .sidebar {
+    height: 20vh;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    z-index: 1000;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding-top: 25vh;
+    top: 1vh;
+  }
+
+  #about {
+    margin-top: 4vh;
+  }
+
+  .sidebar a {
+    font-size: 16px;
+    text-align: center;
+  }
+}

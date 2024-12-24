@@ -1,0 +1,46 @@
+body {
+  background-color: #ffffff;
+}
+
+aside {
+  background-color: #06b699;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  margin-top: 25vh;
+}
+
+h1 {
+  font-family: Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+#div-login {
+  margin-top: 4vh;
+  padding: 2rem;
+  margin-left: 6vw;
+  margin-right: 6vw;
+}
+
+#div-login h3 {
+  margin-bottom: 4vh;
+}
+
+#div-login label {
+  font-weight: 450;
+}
+
+/* Botão */
+#btn-form {
+  background-color: #06b699;
+  border-color: #06b699;
+}
+
+#btn-form:hover {
+  background-color: #fcfcfc;
+  color: #06b699;
+}

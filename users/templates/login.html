@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'users/css/login.css' %}" />
+    <title>Login</title>
+  </head>
+
+  <body>
+    <!-- Conteúdo principal -->
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <!-- Aside -->
+          <aside class="col-sm-4">
+            <h1>Seja bem-vindo!</h2>
+          </aside>
+
+          <!--Login-->
+          <main class="col-sm-8">
+            <h1 class="text-center">Acesse sua conta</h1>
+            <div id="div-login">
+            <!-- Form login -->
+          <form
+          action="{% url 'login' %}"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          {%csrf_token%}
+          <!-- E-mail -->
+          <div class="mb-4">
+            <label for="username" class="form-label"> Nome de usuário: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              placeholder="Digite seu nome de usuário"
+              required
+            />
+          </div>
+          <!-- Password -->
+          <div class="mb-4">
+            <label for="password" class="form-label"> Senha: </label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Digite sua senha"
+              required
+            />
+          </div>
+
+          <!-- Botão para enviar -->
+           <div>
+          <button id="btn-form" type="submit" class="btn btn-primary w-100">
+            Login
+            </button>
+          </div>
+            </form>
+            <div>
+              <a class="mt-2 d-block" href="{% url 'register' %}">Não possui uma conta? Registre-se</a>
+            </div>
+             </div>
+          </main>
+          <div>
+          </div>
+        </div>
+      </div>
+     
+
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>
