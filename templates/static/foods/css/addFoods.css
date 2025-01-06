@@ -52,7 +52,7 @@ body {
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Botão */
+/* Button */
 #btn-form {
   background-color: #06b699;
   border-color: #06b699;
@@ -63,7 +63,8 @@ body {
   color: #06b699;
 }
 
-/* Menu superior para telas pequenas */
+
+
 @media (max-width: 768px) {
   .sidebar {
     height: 20vh;

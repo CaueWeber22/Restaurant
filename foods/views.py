@@ -10,7 +10,14 @@ from django.conf import settings
 #Show foods
 def show_food(request):
     if request.method == 'GET':
-        foods = Food.objects.all()  #Find all foods
+        category_id = request.GET.get('category') 
+
+        if category_id: #Category filter
+            foods = Food.objects.filter(is_available=True, category_id=category_id)
+
+        else: 
+            foods = Food.objects.filter(is_available=True)
+        
         categories = Category.objects.all() #Find all categories
     
         return render(request, 'show_food.html', {'foods': foods, 'categories': categories})

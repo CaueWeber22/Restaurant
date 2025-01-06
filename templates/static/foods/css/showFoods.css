@@ -72,7 +72,7 @@ body {
   font-style: italic;
 }
 
-/* Botão */
+/* Button */
 #btn-form {
   background-color: #06b699;
   border-color: #06b699;
@@ -94,11 +94,11 @@ body {
 }
 
 .delete-btn i {
-  font-size: 20px; /* Ajusta o tamanho do ícone */
-  margin-right: 5px; /* Ajusta o espaço ao redor */
+  font-size: 20px; 
+  margin-right: 5px;
 }
 
-/* Imagem */
+/* Image */
 .image-size {
   width: 250px;
   height: 200px;
@@ -107,7 +107,37 @@ body {
   border-radius: 5%;
 }
 
-/* Menu superior para telas pequenas */
+/* Filter and select */
+#filters-div{
+  padding: 10px;
+  padding-top: 1vw;
+  margin-bottom: 1vw;
+  width: 30vw;
+}
+
+#search-input{
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 100%;
+  margin-bottom: 1vh;
+}
+
+#category-select {
+  width: auto;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 100%;
+}
+
+#btn-filter {
+  margin-left: 9vw;
+  width: 6vw;  
+  padding: 7px; 
+}
+
 @media (max-width: 768px) {
   .sidebar {
     height: 20vh;

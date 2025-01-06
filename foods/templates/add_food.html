@@ -72,7 +72,7 @@
                     name="category_id"
                     id="category_id"
                     required
-                  >
+                    >
                     <option selected>Escolha uma categoria</option>
                     {% for category in categories%}
                     <option value={{category.id}}> {{category.category_type}}</option>
@@ -105,6 +105,7 @@
                     id="food_image"
                     placeholder="Envie a imagem"
                     name="food_image"
+                    required
                   />
                 </div>
 
