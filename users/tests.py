@@ -1,3 +1,11 @@
 from django.test import TestCase
+from django.urls import reverse
 
-# Create your tests here.
+class FoodsUrlsTests(TestCase):
+    def test_user_register_url(self):
+        register_url= reverse('users:register')
+        self.assertEqual(register_url, 'register/')
+
+
+
+    
