@@ -23,7 +23,7 @@
           <!-- Delete icon -->
           <a
             class="delete-btn"
-            href="{% url 'delete_food' food.id %}"
+            href="{% url 'foods:delete_food' food.id %}"
             onclick="return confirm('Você tem certeza que deseja excluir este item?');"
           >
             <i class="fas fa-trash"></i>

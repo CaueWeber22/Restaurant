@@ -3,8 +3,8 @@ from django.urls import reverse
 
 class FoodsUrlsTests(TestCase):
     def test_food_main_url(self):
-        main_url= reverse('foods:main')
-        self.assertEqual(main_url, '/')
+        home_url= reverse('foods:home')
+        self.assertEqual(home_url, '/')
 
     def test_show_food_url(self):
         show_food_url= reverse('foods:show_food')

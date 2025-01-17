@@ -5,10 +5,9 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('', include('foods.urls')),
+    path('', include('foods.urls', namespace='foods')),
     path('admin/', admin.site.urls),
-    path('foods/', include('foods.urls')),
-    path('user/', include('users.urls'))
+    path('user/', include('users.urls', namespace='users'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

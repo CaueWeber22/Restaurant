@@ -40,13 +40,17 @@ def add_food(request):
         description = request.POST.get('description')
 
         FoodCreate = Food.objects.create(
-        name = name, price = price, category_id = category_id, image = image, description = description
-        )
-        FoodCreate.save
-        return redirect('show_food')
+                name=name,
+                price=price,
+                category_id=category_id,
+                image=image,
+                description=description
+            )
+        FoodCreate.save()
+        return redirect('foods:show_food')
     
 # Main
-def main (request):
+def home (request):
      return render(request, 'main.html')
 
 # Delete
@@ -63,3 +67,4 @@ def delete_food(request, food_id):
 
     food.delete()
     return redirect('show_food')  
+
