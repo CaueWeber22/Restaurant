@@ -24,7 +24,7 @@ class FoodsViewsTests (TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_add_food_view_returns_200_ok(self):
-        self.client.login(username='caue', password='teste12345')
+        self.client.login(username='', password='')
 
         response = self.client.get(reverse('foods:add_food'))
         self.assertEqual(response.status_code, 200)
