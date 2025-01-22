@@ -7,18 +7,11 @@ from django.contrib.auth.models import User
 #Test setups
 class FoodsTestBases(TestCase):
     def setUp(self) -> None:
-         # Category for tests
-        self.category_test = Category.objects.create(category_type="Category_test")
+        # Category for tests
+        #self.category_test = self.make_category()
 
         # Food for tests
-        self.food_test = Food.objects.create(
-            name='food_test',
-            price=50,
-            description='A food for tests',
-            is_available=True,  
-            category=self.category_test 
-        )
-       
+        # self.food_test = self.make_food()
         #User for tests
         self.user = User.objects.create_user(username='teste', password='test12345')
 
@@ -58,3 +51,28 @@ class FoodsViewsTests (FoodsTestBases):
         response = self.client.get(reverse('foods:add_food'))
         self.assertEqual(response.status_code, 200)
 
+    def test_show_food_dont_load_recipes_not_available(self):
+        self.make_food(is_available = False)
+
+        response = self.client.get('foods:show_foods')
+
+        self.assertEqual(response.status_code, 404)
+
+    #Functions to create categories
+    def make_category(self, category = "Test_catego"):
+        return Category.objects.create(category_type=category)
+
+    #Functions to create foods    
+    def make_food(self, 
+                name='food_test',
+                price=50,
+                description='food...',
+                is_available=True 
+            ):
+        return Food.objects.create(
+            name = name,
+            price = price,
+            description = description,
+            is_available = is_available,  
+            category = self.make_category()
+        )
