@@ -51,18 +51,19 @@ class FoodsViewsTests (FoodsTestBases):
         response = self.client.get(reverse('foods:add_food'))
         self.assertEqual(response.status_code, 200)
 
-    def test_show_food_dont_load_recipes_not_available(self):
-        self.make_food(is_available = False)
+    # test if show_food filter for available foods is correct
+    def test_show_food_load_available_foods(self):
+        self.make_food(is_available = True)
 
-        response = self.client.get('foods:show_foods')
+        response = self.client.get(reverse('foods:show_food'))
 
-        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 200)
 
-    #Functions to create categories
+    #Function to create categories
     def make_category(self, category = "Test_catego"):
         return Category.objects.create(category_type=category)
 
-    #Functions to create foods    
+    #Function to create foods    
     def make_food(self, 
                 name='food_test',
                 price=50,
