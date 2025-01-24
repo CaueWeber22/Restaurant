@@ -1,6 +1,7 @@
 from foods.models import Food
 from .tests_foods_base import FoodsTestBases
 from django.core.exceptions import ValidationError
+from parameterized import parameterized, parameterized_class
 
 
 
@@ -12,21 +13,17 @@ class FoodsModelsTests (FoodsTestBases):
       return super().setUp()
 
    #Test if an error occurs when trying to create food name with more than 50 chars
-   def test_food_name_raise_error_if_name_has_more_than_50_char(self):
-      self.food.name = 'A'*65
-
+   @parameterized.expand([
+         ('name', 50),
+         ('description', 50),
+      ])
+   def test_fields_max_length(self, field, max_length):
+      setattr(self.food, field, 'A' * (max_length + 1))
       with self.assertRaises(ValidationError):
-        self.food.full_clean()
-
-   #Test if an error occurs when trying to create food name with more than 50 chars
-   def test_food_description_raise_error_if_has_more_than_50_char(self):
-      self.food.description = 'A'*65
-
-      with self.assertRaises(ValidationError):
-        self.food.full_clean()        
+         self.food.full_clean()
 
    #Test food price max length
-   def test_food_price_max_length(self):
+   def test_food_price_max_value_length(self):
       self.food.price = 12345678901234
       
       with self.assertRaises(ValidationError):
