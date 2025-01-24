@@ -1,5 +1,4 @@
 from django.test import TestCase
-from django.urls import reverse, resolve
 from foods import views
 from foods.models import Food, Category 
 from django.contrib.auth.models import User
