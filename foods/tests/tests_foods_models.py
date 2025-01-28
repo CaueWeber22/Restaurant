@@ -12,7 +12,7 @@ class FoodsModelsTests (FoodsTestBases):
 
       return super().setUp()
 
-   #Test if an error occurs when trying to create food name with more than 50 chars
+   #Test if an error occurs when trying to create food name and description that exceed the character limit.
    @parameterized.expand([
          ('name', 50),
          ('description', 50),
@@ -87,12 +87,14 @@ class FoodsModelsTests (FoodsTestBases):
       
       with self.assertRaises(ValidationError):
          self.category_test.full_clean()    
-
+   
+   #Test the food str representation
    def test_food_string_representations(self):
       self.food.name = 'Testing'
       self.food.full_clean()
       self.assertEqual(str(self.food), 'Testing')
    
+   #Test the category str representation
    def test_category_string_representations(self):
       self.category_test.category_type = 'Testing'
       self.food.full_clean()
