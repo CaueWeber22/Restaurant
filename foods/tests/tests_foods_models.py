@@ -88,3 +88,12 @@ class FoodsModelsTests (FoodsTestBases):
       with self.assertRaises(ValidationError):
          self.category_test.full_clean()    
 
+   def test_food_string_representations(self):
+      self.food.name = 'Testing'
+      self.food.full_clean()
+      self.assertEqual(str(self.food), 'Testing')
+   
+   def test_category_string_representations(self):
+      self.category_test.category_type = 'Testing'
+      self.food.full_clean()
+      self.assertEqual(str(self.category_test), 'Testing')
