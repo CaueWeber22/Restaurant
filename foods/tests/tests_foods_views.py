@@ -18,6 +18,10 @@ class FoodsViewsTests (FoodsTestBases):
     def test_add_food_view_is_correct(self):
         add_food_view = resolve(reverse('foods:add_food'))
         self.assertIs(add_food_view.func, views.add_food)
+
+    def test_show_food_search_view_is_correct(self):
+        search_food = resolve(reverse('foods:search'))
+        self.assertIs(search_food.func, views.food_search)
     
     #Test if the home view returns status 200
     def test_home_food_view_returns_200_ok(self):

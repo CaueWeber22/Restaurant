@@ -13,3 +13,7 @@ class FoodsUrlsTests(TestCase):
     def test_add_food_url(self):
         add_food_url= reverse('foods:add_food')
         self.assertEqual(add_food_url, '/add/')
+
+    def test_food_search_url_is_correct(self):
+        url = reverse('foods:food_search')
+        self.assertEqual(url, '/show/search/')

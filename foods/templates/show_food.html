@@ -26,29 +26,32 @@
 
           <div id="div-card" class="col-12">
             <section id="filters-div">
+              
+            <form action= "{% url 'foods:food_search'%}" method="GET">
               <!-- Search field -->
-              <div class="row align-items-center">
-                  <div class="col-sm-12">
-                      <label for="search-input" class="form-label">Pesquisa por nome:</label>
-                      <input type="text" id="search-input" class="form-control"
-                          placeholder="Digite um nome para pesquisar..." />
-                  </div>
-              </div>
+                <div class="row align-items-center">
+                    <div class="col-sm-12">
+                        <label for="name" class="form-label">Pesquisa por nome:</label>
+                        <input type="text" id="name" class="form-control"
+                            placeholder="Digite um nome para pesquisar..." />
+                    </div>
+                </div>
   
   
               <!-- Select field -->
-              <div class="row align-items-center">
-                  <div class="col-sm-12 d-flex" style="height: 4vh; margin-top: 1vh;">
-                      <label for="category-select" class="mt-1">Categoria:</label>
-                      <select id="category-select" class="form-select ml-2">
-                          <option value="">Todos</option>
-                          {% for category in categories %}
-                          <option value={{category.id}}>{{category.category_type}}</option>
-                          {% endfor %}
-                      </select>
-                      <button id="btn-filter" class="btn btn-primary">Filtrar</button>
-                  </div>
-              </div>
+               <div class="row align-items-center">
+                    <div class="col-sm-12 d-flex" style="height: 4vh; margin-top: 1vh;">
+                        <label for="category" class="mt-1">Categoria:</label>
+                        <select type="search" id="category-select" name="category" class="form-select ml-2">
+                            <option value="">Todos</option>
+                            {% for category in categories %}
+                            <option value={{category.id}}>{{category.category_type}}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit" id="btn-filter" class="btn btn-primary">Filtrar</button>
+                    </div>
+                </div>
+            </form>
             </section>
 
            <!-- Card -->

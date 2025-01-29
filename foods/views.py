@@ -10,13 +10,7 @@ from django.conf import settings
 #Show foods
 def show_food(request):
     if request.method == 'GET':
-        category_id = request.GET.get('category') 
-
-        if category_id: #Category filter
-            foods = Food.objects.filter(is_available=True, category_id=category_id)
-
-        else: 
-            foods = Food.objects.filter(is_available=True)
+        foods = Food.objects.filter(is_available=True)
         
         categories = Category.objects.all() #Find all categories
     
@@ -67,4 +61,18 @@ def delete_food(request, food_id):
 
     food.delete()
     return redirect('show_food')  
+
+def food_search(request):
+    category_id = request.GET.get('category') 
+
+    if category_id: #Category filter
+            foods = Food.objects.filter(is_available=True, category_id=category_id)
+
+    else: 
+        return redirect('foods:show_food')
+        
+    categories = Category.objects.all() #Find all categories
+    
+    return render(request, 'show_food.html', {"foods": foods, "categories": categories} )
+
 
