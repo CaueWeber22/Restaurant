@@ -62,13 +62,24 @@ def delete_food(request, food_id):
     food.delete()
     return redirect('show_food')  
 
+#Serch for foods
 def food_search(request):
     category_id = request.GET.get('category') 
+    name = request.GET.get('name')
 
-    if category_id: #Category filter
-            foods = Food.objects.filter(is_available=True, category_id=category_id)
+    # Check if has filters
+    if category_id or name:  
+        filters = {"is_available": True}  # Dictionary for filters
 
-    else: 
+        if category_id:  
+            filters["category_id"] = category_id  
+        
+        if name:  
+            filters["name__icontains"] = name 
+
+        foods = Food.objects.filter(**filters)  # Searching
+        
+    else:  
         return redirect('foods:show_food')
         
     categories = Category.objects.all() #Find all categories
