@@ -60,7 +60,7 @@ def delete_food(request, food_id):
             os.remove(image_path)
 
     food.delete()
-    return redirect('show_food')  
+    return redirect('foods:show_food')  
 
 #Serch for foods
 def food_search(request):

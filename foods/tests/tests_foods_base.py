@@ -26,7 +26,7 @@ class FoodsTestBases(TestCase):
                 name='food_test',
                 price=50,
                 description='food...',
-                is_available=True 
+                is_available=True
             ):
         return Food.objects.create(
             name = name,
