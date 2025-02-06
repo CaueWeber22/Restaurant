@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate  
 from django.contrib.auth import login as auth_login
@@ -30,7 +30,7 @@ def register(request):
         )
         
         
-        return HttpResponse("aaa")
+        return redirect('users:login')
     
     return render(request, 'login.html')
     

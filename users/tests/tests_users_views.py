@@ -30,7 +30,7 @@ class RegisterUsersViewsTests(UsersTestBases):
         
         self.assertTrue(User.objects.filter(username='user_for_test_post').exists())
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
 #Tests for Login user view
 class LoginUsersViewsTests(UsersTestBases):
