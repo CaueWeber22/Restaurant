@@ -18,7 +18,7 @@ def register(request):
 
         # Check if the name exists
         if User.objects.filter(username=username).exists():
-            return HttpResponse(f"O usuário {username} já existe")
+            return HttpResponse(f"O usuário {username} já existe", status=409)
         
         # Create the user
         User.objects.create_user(
@@ -32,10 +32,6 @@ def register(request):
         
         return redirect('users:login')
     
-    return render(request, 'login.html')
-    
-   
-
 # User login
 def login(request):
 
@@ -50,8 +46,8 @@ def login(request):
 
         if user:
             auth_login(request, user)
-            return render (request, 'add_food.html')
+            return render (request, 'add_food.html', status=200)
         
         else:
-            return HttpResponse('Algo errado')
+            return HttpResponse('Algo errado', status = 404)
 
