@@ -64,8 +64,8 @@ def delete_food(request, food_id):
 
 #Serch for foods
 def food_search(request):
-    category_id = request.GET.get('category') 
-    name = request.GET.get('name')
+    category_id = request.GET.get('category')
+    name = request.GET.get('name').strip()
 
     # Check if has filters
     if category_id or name:  

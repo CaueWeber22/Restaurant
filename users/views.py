@@ -49,5 +49,5 @@ def login(request):
             return render (request, 'add_food.html', status=200)
         
         else:
-            return HttpResponse('Algo errado', status = 404)
+            return HttpResponse('Usuário não encontrado', status = 404)
 
